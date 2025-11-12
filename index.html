@@ -6,17 +6,25 @@
     <title>Los 7 Pecados Capitales</title>
     <!-- Carga de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Fuente Inter para un look minimalista -->
+    
+    <!-- Fuentes de Google: Inter (cuerpo) y Bitter (títulos "locos") -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     
     <style>
         /* Aplicamos la fuente Inter como principal */
         body {
             font-family: 'Inter', sans-serif;
+            /* Fondo con textura sutil */
+            background-color: #111827; /* bg-gray-900 */
         }
         
+        /* Estilo para los títulos "locos" */
+        .font-loco {
+            font-family: 'Bitter', serif;
+        }
+
         /* Contenedor para la imagen y el filtro */
         .image-container {
             position: relative;
@@ -51,7 +59,6 @@
         /* Efecto al pasar el mouse sobre la tarjeta */
         article.group:hover .image-container img {
             filter: grayscale(0%) brightness(1); /* Restaura la imagen */
-            transform: scale(1.05); /* Ligero zoom */
         }
         
         /* Fallback para imágenes rotas */
@@ -68,105 +75,114 @@
         }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-300 min-h-screen antialiased">
+<body class="bg-gray-900 text-gray-300 min-h-screen antialiased overflow-x-hidden">
 
     <!-- Contenedor Principal -->
-    <div class="container mx-auto p-6 md:p-12">
+    <div class="container mx-auto p-6 md:p-12 relative">
 
         <!-- Título -->
-        <header class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">Los Siete Pecados Capitales</h1>
+        <header class="text-center mb-12 z-10 relative">
+            <h1 class="text-4xl md:text-6xl font-loco text-lime-300 mb-4">Los Siete Pecados Capitales</h1>
             <p class="text-lg text-gray-400">Un análisis inspirado en 'Se7en' (1995)</p>
+            
+            <!-- Texto Adicional 1 -->
+            <p class="max-w-2xl mx-auto text-gray-500 mt-6 text-sm italic">
+                "Nosotros vemos los pecados capitales como algo trivial, cotidiano. Pero, ¿y si no lo fueran? 
+                ¿Y si fueran un mapa... un mapa hacia la locura y la redención forzada?"
+            </p>
         </header>
 
         <!-- Rejilla de Pecados (Viñetas) -->
-        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-
-            <!-- 1. Gula (Restos de comida, desorden) -->
-            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group">
+        <!-- Usamos un div contenedor para permitir el posicionamiento "loco" -->
+        <main class="relative max-w-7xl mx-auto py-12">
+            
+            <!-- Cada 'article' tiene una rotación y un z-index para el efecto "loco" -->
+            
+            <!-- 1. Gula -->
+            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group w-full md:w-96 mx-auto my-8 transform -rotate-2 hover:rotate-0 hover:scale-110 transition-transform duration-300 z-10 relative">
                 <div class="image-container">
                     <img src="https://images.pexels.com/photos/3926124/pexels-photo-3926124.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="[Imagen de restos de comida y desorden]">
                 </div>
                 <div class="p-6">
-                    <h2 class="text-2xl font-bold text-white mb-2">1. Gula</h2>
+                    <h2 class="text-3xl font-loco text-lime-300 mb-2">1. Gula</h2>
                     <p class="text-gray-400">
                         La indulgencia excesiva hasta el punto de la autodestrucción. En la película, es el primer pecado grotesco que encuentran los detectives, marcando el inicio del macabro juego.
                     </p>
                 </div>
             </article>
 
-            <!-- 2. Avaricia (Mano aferrada a algo, oscuridad) -->
-            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group">
+            <!-- 2. Avaricia -->
+            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group w-full md:w-96 mx-auto my-8 transform rotate-1 hover:rotate-0 hover:scale-110 transition-transform duration-300 z-20 relative md:ml-auto md:mr-16">
                 <div class="image-container">
                     <img src="https://images.pexels.com/photos/247969/pexels-photo-247969.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="[Imagen de una mano aferrándose a algo con fuerza]">
                 </div>
                 <div class="p-6">
-                    <h2 class="text-2xl font-bold text-white mb-2">2. Avaricia</h2>
+                    <h2 class="text-3xl font-loco text-lime-300 mb-2">2. Avaricia</h2>
                     <p class="text-gray-400">
                         El deseo insaciable de riqueza material, a menudo a costa de otros. El segundo pecado castiga a un abogado que encarnaba la codicia en vida, forzado a pagar con su propia carne.
                     </p>
                 </div>
             </article>
 
-            <!-- 3. Pereza (Habitación vacía y polvorienta) -->
-            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group">
+            <!-- 3. Pereza -->
+            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group w-full md:w-96 mx-auto my-8 transform -rotate-1 hover:rotate-0 hover:scale-110 transition-transform duration-300 z-10 relative md:ml-12 md:mr-auto">
                 <div class="image-container">
                     <img src="https://images.pexels.com/photos/271795/pexels-photo-271795.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="[Imagen de una silla vacía en una habitación polvorienta]">
                 </div>
                 <div class="p-6">
-                    <h2 class="text-2xl font-bold text-white mb-2">3. Pereza</h2>
+                    <h2 class="text-3xl font-loco text-lime-300 mb-2">3. Pereza</h2>
                     <p class="text-gray-400">
                         La evasión del trabajo, del esfuerzo y de la propia existencia. Un pecado castigado con una crueldad metódica, forzando a la víctima a una inmovilidad infernal durante un año.
                     </p>
                 </div>
             </article>
 
-            <!-- 4. Lujuria (Luces de neón en la oscuridad) -->
-            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group">
+            <!-- 4. Lujuria -->
+            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group w-full md:w-96 mx-auto my-8 transform rotate-2 hover:rotate-0 hover:scale-110 transition-transform duration-300 z-30 relative md:ml-auto md:mr-8">
                 <div class="image-container">
                     <img src="https://images.pexels.com/photos/1034859/pexels-photo-1034859.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="[Imagen de una luz de neón roja o rosa en la oscuridad]">
                 </div>
                 <div class="p-6">
-                    <h2 class="text-2xl font-bold text-white mb-2">4. Lujuria</h2>
+                    <h2 class="text-3xl font-loco text-lime-300 mb-2">4. Lujuria</h2>
                     <p class="text-gray-400">
                         El deseo sexual desordenado e incontrolable. La cuarta víctima es castigada por su 'pecado' de una manera brutalmente irónica, utilizando el objeto de su deseo como arma.
                     </p>
                 </div>
             </article>
 
-            <!-- 5. Soberbia (Espejo roto o distorsionado) -->
-            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group">
+            <!-- 5. Soberbia -->
+            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group w-full md:w-96 mx-auto my-8 transform -rotate-3 hover:rotate-0 hover:scale-110 transition-transform duration-300 z-10 relative md:ml-24 md:mr-auto">
                 <div class="image-container">
                     <img src="https://images.pexels.com/photos/1689255/pexels-photo-1689255.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="[Imagen de un espejo roto o fragmentado]">
                 </div>
                 <div class="p-6">
-                    <h2 class="text-2xl font-bold text-white mb-2">5. Soberbia</h2>
+                    <h2 class="text-3xl font-loco text-lime-300 mb-2">5. Soberbia</h2>
                     <p class="text-gray-400">
                         El orgullo excesivo y la arrogancia, creyéndose superior a los demás. A la quinta víctima se le da una elección imposible: vivir desfigurada o morir, un castigo directo a su vanidad.
                     </p>
                 </div>
             </article>
 
-            <!-- 6. Envidia (Ojo mirando a través de algo) -->
-            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group">
+            <!-- 6. Envidia -->
+            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group w-full md:w-96 mx-auto my-8 transform rotate-1 hover:rotate-0 hover:scale-110 transition-transform duration-300 z-20 relative md:ml-auto md:mr-24">
                 <div class="image-container">
                     <img src="https://images.pexels.com/photos/1103829/pexels-photo-1103829.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="[Imagen de un ojo mirando a través de un agujero o persiana]">
                 </div>
                 <div class="p-6">
-                    <h2 class="text-2xl font-bold text-white mb-2">6. Envidia</h2>
+                    <h2 class="text-3xl font-loco text-lime-300 mb-2">6. Envidia</h2>
                     <p class="text-gray-400">
                         El resentimiento por las posesiones, cualidades o la vida de otro. Es el motor del asesino, John Doe. El pecado que él mismo confiesa y que utiliza para su clímax.
                     </p>
                 </div>
             </article>
 
-            <!-- 7. Ira (Cara gritando en la oscuridad) -->
-            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group md:col-span-2 lg:col-span-1 lg:col-start-2">
+            <!-- 7. Ira -->
+            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group w-full md:w-96 mx-auto my-8 transform -rotate-1 hover:rotate-0 hover:scale-110 transition-transform duration-300 z-40 relative">
                 <div class="image-container">
                     <img src="https://images.pexels.com/photos/1999463/pexels-photo-1999463.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="[Imagen de un rostro gritando en las sombras]">
                 </div>
                 <div class="p-6">
-                    <h2 class="text-2xl font-bold text-white mb-2">7. Ira</h2>
+                    <h2 class="text-3xl font-loco text-lime-300 mb-2">7. Ira</h2>
                     <p class="text-gray-400">
                         La furia incontrolada que busca venganza o destrucción. Es el pecado final, provocado deliberadamente por el asesino para completar su 'gran obra' maestra en el detective Mills.
                     </D>
@@ -174,9 +190,19 @@
             </article>
 
         </main>
+        
+        <!-- Texto Adicional 2 -->
+        <section class="text-center max-w-2xl mx-auto my-16 z-10 relative">
+            <h3 class="text-2xl font-loco text-lime-300 mb-4">Nota de Cierre</h3>
+            <p class="text-gray-400">
+                El mundo es un lugar horrible... pero vale la pena luchar por él. O eso dicen. 
+                El asesino creía estar limpiando el mundo, pero solo demostró ser parte de él. 
+                Al final, la apatía podría ser el octavo pecado, y el peor de todos.
+            </p>
+        </section>
 
         <!-- Footer con la atribución solicitada -->
-        <footer class="text-center mt-16 pb-6">
+        <footer class="text-center mt-16 pb-6 z-10 relative">
             <p class="text-sm text-gray-500">
                 by direction de Carlos Nuñez
             </p>
