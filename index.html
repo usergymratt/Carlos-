@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los 7 Pecados Capitales</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fuente Inter para un look minimalista -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Aplicamos la fuente Inter como principal */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Contenedor para la imagen y el filtro */
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 12rem; /* h-48 */
+            overflow: hidden;
+            background-color: #1a202c; /* Fondo para imágenes rotas */
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Filtro para dar el tono 'Se7en' */
+            filter: grayscale(80%) brightness(0.7);
+            transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        
+        /* Overlay oscuro sobre la imagen */
+        .image-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            /* Mezcla el color para oscurecer la imagen */
+            mix-blend-mode: multiply;
+        }
+
+        /* Efecto al pasar el mouse sobre la tarjeta */
+        article.group:hover .image-container img {
+            filter: grayscale(0%) brightness(1); /* Restaura la imagen */
+            transform: scale(1.05); /* Ligero zoom */
+        }
+        
+        /* Fallback para imágenes rotas */
+        img::before {
+            content: attr(alt); /* Muestra el texto alternativo */
+            color: #718096;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            font-style: italic;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300 min-h-screen antialiased">
+
+    <!-- Contenedor Principal -->
+    <div class="container mx-auto p-6 md:p-12">
+
+        <!-- Título -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">Los Siete Pecados Capitales</h1>
+            <p class="text-lg text-gray-400">Un análisis inspirado en 'Se7en' (1995)</p>
+        </header>
+
+        <!-- Rejilla de Pecados (Viñetas) -->
+        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+
+            <!-- 1. Gula (Restos de comida, desorden) -->
+            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group">
+                <div class="image-container">
+                    <img src="https://images.pexels.com/photos/3926124/pexels-photo-3926124.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="[Imagen de restos de comida y desorden]">
+                </div>
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-white mb-2">1. Gula</h2>
+                    <p class="text-gray-400">
+                        La indulgencia excesiva hasta el punto de la autodestrucción. En la película, es el primer pecado grotesco que encuentran los detectives, marcando el inicio del macabro juego.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 2. Avaricia (Mano aferrada a algo, oscuridad) -->
+            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group">
+                <div class="image-container">
+                    <img src="https://images.pexels.com/photos/247969/pexels-photo-247969.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="[Imagen de una mano aferrándose a algo con fuerza]">
+                </div>
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-white mb-2">2. Avaricia</h2>
+                    <p class="text-gray-400">
+                        El deseo insaciable de riqueza material, a menudo a costa de otros. El segundo pecado castiga a un abogado que encarnaba la codicia en vida, forzado a pagar con su propia carne.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 3. Pereza (Habitación vacía y polvorienta) -->
+            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group">
+                <div class="image-container">
+                    <img src="https://images.pexels.com/photos/271795/pexels-photo-271795.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="[Imagen de una silla vacía en una habitación polvorienta]">
+                </div>
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-white mb-2">3. Pereza</h2>
+                    <p class="text-gray-400">
+                        La evasión del trabajo, del esfuerzo y de la propia existencia. Un pecado castigado con una crueldad metódica, forzando a la víctima a una inmovilidad infernal durante un año.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 4. Lujuria (Luces de neón en la oscuridad) -->
+            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group">
+                <div class="image-container">
+                    <img src="https://images.pexels.com/photos/1034859/pexels-photo-1034859.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="[Imagen de una luz de neón roja o rosa en la oscuridad]">
+                </div>
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-white mb-2">4. Lujuria</h2>
+                    <p class="text-gray-400">
+                        El deseo sexual desordenado e incontrolable. La cuarta víctima es castigada por su 'pecado' de una manera brutalmente irónica, utilizando el objeto de su deseo como arma.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 5. Soberbia (Espejo roto o distorsionado) -->
+            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group">
+                <div class="image-container">
+                    <img src="https://images.pexels.com/photos/1689255/pexels-photo-1689255.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="[Imagen de un espejo roto o fragmentado]">
+                </div>
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-white mb-2">5. Soberbia</h2>
+                    <p class="text-gray-400">
+                        El orgullo excesivo y la arrogancia, creyéndose superior a los demás. A la quinta víctima se le da una elección imposible: vivir desfigurada o morir, un castigo directo a su vanidad.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 6. Envidia (Ojo mirando a través de algo) -->
+            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group">
+                <div class="image-container">
+                    <img src="https://images.pexels.com/photos/1103829/pexels-photo-1103829.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="[Imagen de un ojo mirando a través de un agujero o persiana]">
+                </div>
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-white mb-2">6. Envidia</h2>
+                    <p class="text-gray-400">
+                        El resentimiento por las posesiones, cualidades o la vida de otro. Es el motor del asesino, John Doe. El pecado que él mismo confiesa y que utiliza para su clímax.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 7. Ira (Cara gritando en la oscuridad) -->
+            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group md:col-span-2 lg:col-span-1 lg:col-start-2">
+                <div class="image-container">
+                    <img src="https://images.pexels.com/photos/1999463/pexels-photo-1999463.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="[Imagen de un rostro gritando en las sombras]">
+                </div>
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-white mb-2">7. Ira</h2>
+                    <p class="text-gray-400">
+                        La furia incontrolada que busca venganza o destrucción. Es el pecado final, provocado deliberadamente por el asesino para completar su 'gran obra' maestra en el detective Mills.
+                    </D>
+                </div>
+            </article>
+
+        </main>
+
+        <!-- Footer con la atribución solicitada -->
+        <footer class="text-center mt-16 pb-6">
+            <p class="text-sm text-gray-500">
+                by direction de Carlos Nuñez
+            </p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
