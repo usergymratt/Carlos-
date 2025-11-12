@@ -7,22 +7,28 @@
     <!-- Carga de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Fuentes de Google: Inter (cuerpo) y Bitter (títulos "locos") -->
+    <!-- Fuentes de Google: Inter (cuerpo), Bitter (títulos "locos"), Special Elite (notas) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&family=Inter:wght@300;400&family=Special+Elite&display=swap" rel="stylesheet">
     
     <style>
         /* Aplicamos la fuente Inter como principal */
         body {
             font-family: 'Inter', sans-serif;
-            /* Fondo con textura sutil */
             background-color: #111827; /* bg-gray-900 */
+            /* Efecto Viñeta (bordes oscuros) */
+            box-shadow: inset 0 0 100px 25px rgba(0, 0, 0, 0.5);
         }
         
         /* Estilo para los títulos "locos" */
         .font-loco {
             font-family: 'Bitter', serif;
+        }
+        
+        /* Estilo para las notas de caso (máquina de escribir) */
+        .font-case-note {
+            font-family: 'Special Elite', monospace;
         }
 
         /* Contenedor para la imagen y el filtro */
@@ -38,7 +44,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Filtro para dar el tono 'Se7en' */
             filter: grayscale(80%) brightness(0.7);
             transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
         }
@@ -52,7 +57,6 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.3);
-            /* Mezcla el color para oscurecer la imagen */
             mix-blend-mode: multiply;
         }
 
@@ -73,6 +77,45 @@
             font-style: italic;
             font-size: 0.875rem;
         }
+
+        /* --- NUEVO DISEÑO LOCO --- */
+        
+        /* Efecto "Cinta Adhesiva" en las viñetas */
+        article::before,
+        article::after {
+            content: '';
+            position: absolute;
+            width: 90px;
+            height: 25px;
+            /* Color cinta adhesiva translúcida */
+            background-color: rgba(253, 230, 138, 0.1); 
+            border: 1px solid rgba(253, 230, 138, 0.2);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+            opacity: 0.5;
+            z-index: 20; /* Por encima de la tarjeta */
+            pointer-events: none; /* No interfiere con el ratón */
+        }
+        
+        /* Posición de la cinta 1 (arriba) */
+        article::before {
+            top: -10px;
+            left: 30px;
+            transform: rotate(-15deg);
+        }
+        
+        /* Posición de la cinta 2 (abajo) */
+        article::after {
+            bottom: -12px;
+            right: 20px;
+            transform: rotate(10deg);
+        }
+
+        /* Hover más agresivo */
+        article:hover {
+            transform: rotate(0deg) scale(1.15) !important;
+            z-index: 50 !important; /* Se pone por encima de todo */
+        }
+
     </style>
 </head>
 <body class="bg-gray-900 text-gray-300 min-h-screen antialiased overflow-x-hidden">
@@ -82,24 +125,23 @@
 
         <!-- Título -->
         <header class="text-center mb-12 z-10 relative">
-            <h1 class="text-4xl md:text-6xl font-loco text-lime-300 mb-4">Los Siete Pecados Capitales</h1>
+            <h1 class="text-4xl md:text-6xl font-loco text-red-500 mb-4">Los Siete Pecados Capitales</h1>
             <p class="text-lg text-gray-400">Un análisis inspirado en 'Se7en' (1995)</p>
             
-            <!-- Texto Adicional 1 -->
-            <p class="max-w-2xl mx-auto text-gray-500 mt-6 text-sm italic">
+            <!-- Texto Adicional 1 (con nueva fuente) -->
+            <p class="max-w-2xl mx-auto text-gray-500 mt-6 text-lg font-case-note">
                 "Nosotros vemos los pecados capitales como algo trivial, cotidiano. Pero, ¿y si no lo fueran? 
                 ¿Y si fueran un mapa... un mapa hacia la locura y la redención forzada?"
             </p>
         </header>
 
         <!-- Rejilla de Pecados (Viñetas) -->
-        <!-- Usamos un div contenedor para permitir el posicionamiento "loco" -->
         <main class="relative max-w-7xl mx-auto py-12">
             
-            <!-- Cada 'article' tiene una rotación y un z-index para el efecto "loco" -->
+            <!-- Cada 'article' tiene rotación, z-index y hover definidos en el CSS -->
             
             <!-- 1. Gula -->
-            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group w-full md:w-96 mx-auto my-8 transform -rotate-2 hover:rotate-0 hover:scale-110 transition-transform duration-300 z-10 relative">
+            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group w-full md:w-96 mx-auto my-8 transform -rotate-2 transition-transform duration-300 z-10 relative">
                 <div class="image-container">
                     <img src="https://images.pexels.com/photos/3926124/pexels-photo-3926124.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="[Imagen de restos de comida y desorden]">
                 </div>
@@ -112,7 +154,7 @@
             </article>
 
             <!-- 2. Avaricia -->
-            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group w-full md:w-96 mx-auto my-8 transform rotate-1 hover:rotate-0 hover:scale-110 transition-transform duration-300 z-20 relative md:ml-auto md:mr-16">
+            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group w-full md:w-96 mx-auto my-8 transform rotate-1 transition-transform duration-300 z-20 relative md:ml-auto md:mr-16">
                 <div class="image-container">
                     <img src="https://images.pexels.com/photos/247969/pexels-photo-247969.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="[Imagen de una mano aferrándose a algo con fuerza]">
                 </div>
@@ -125,7 +167,7 @@
             </article>
 
             <!-- 3. Pereza -->
-            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group w-full md:w-96 mx-auto my-8 transform -rotate-1 hover:rotate-0 hover:scale-110 transition-transform duration-300 z-10 relative md:ml-12 md:mr-auto">
+            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group w-full md:w-96 mx-auto my-8 transform -rotate-1 transition-transform duration-300 z-10 relative md:ml-12 md:mr-auto">
                 <div class="image-container">
                     <img src="https://images.pexels.com/photos/271795/pexels-photo-271795.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="[Imagen de una silla vacía en una habitación polvorienta]">
                 </div>
@@ -138,7 +180,7 @@
             </article>
 
             <!-- 4. Lujuria -->
-            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group w-full md:w-96 mx-auto my-8 transform rotate-2 hover:rotate-0 hover:scale-110 transition-transform duration-300 z-30 relative md:ml-auto md:mr-8">
+            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group w-full md:w-96 mx-auto my-8 transform rotate-2 transition-transform duration-300 z-30 relative md:ml-auto md:mr-8">
                 <div class="image-container">
                     <img src="https://images.pexels.com/photos/1034859/pexels-photo-1034859.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="[Imagen de una luz de neón roja o rosa en la oscuridad]">
                 </div>
@@ -146,12 +188,12 @@
                     <h2 class="text-3xl font-loco text-lime-300 mb-2">4. Lujuria</h2>
                     <p class="text-gray-400">
                         El deseo sexual desordenado e incontrolable. La cuarta víctima es castigada por su 'pecado' de una manera brutalmente irónica, utilizando el objeto de su deseo como arma.
-                    </p>
+                    </s_C>
                 </div>
             </article>
 
             <!-- 5. Soberbia -->
-            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group w-full md:w-96 mx-auto my-8 transform -rotate-3 hover:rotate-0 hover:scale-110 transition-transform duration-300 z-10 relative md:ml-24 md:mr-auto">
+            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group w-full md:w-96 mx-auto my-8 transform -rotate-3 transition-transform duration-300 z-10 relative md:ml-24 md:mr-auto">
                 <div class="image-container">
                     <img src="https://images.pexels.com/photos/1689255/pexels-photo-1689255.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="[Imagen de un espejo roto o fragmentado]">
                 </div>
@@ -164,7 +206,7 @@
             </article>
 
             <!-- 6. Envidia -->
-            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group w-full md:w-96 mx-auto my-8 transform rotate-1 hover:rotate-0 hover:scale-110 transition-transform duration-300 z-20 relative md:ml-auto md:mr-24">
+            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group w-full md:w-96 mx-auto my-8 transform rotate-1 transition-transform duration-300 z-20 relative md:ml-auto md:mr-24">
                 <div class="image-container">
                     <img src="https://images.pexels.com/photos/1103829/pexels-photo-1103829.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="[Imagen de un ojo mirando a través de un agujero o persiana]">
                 </div>
@@ -177,7 +219,7 @@
             </article>
 
             <!-- 7. Ira -->
-            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group w-full md:w-96 mx-auto my-8 transform -rotate-1 hover:rotate-0 hover:scale-110 transition-transform duration-300 z-40 relative">
+            <article class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group w-full md:w-96 mx-auto my-8 transform -rotate-1 transition-transform duration-300 z-40 relative">
                 <div class="image-container">
                     <img src="https://images.pexels.com/photos/1999463/pexels-photo-1999463.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="[Imagen de un rostro gritando en las sombras]">
                 </div>
@@ -191,10 +233,10 @@
 
         </main>
         
-        <!-- Texto Adicional 2 -->
+        <!-- Texto Adicional 2 (con nueva fuente) -->
         <section class="text-center max-w-2xl mx-auto my-16 z-10 relative">
             <h3 class="text-2xl font-loco text-lime-300 mb-4">Nota de Cierre</h3>
-            <p class="text-gray-400">
+            <p class="text-gray-400 text-lg font-case-note">
                 El mundo es un lugar horrible... pero vale la pena luchar por él. O eso dicen. 
                 El asesino creía estar limpiando el mundo, pero solo demostró ser parte de él. 
                 Al final, la apatía podría ser el octavo pecado, y el peor de todos.
